@@ -106,7 +106,7 @@ const generateAuthToken = (user) => {
 router.post("/generatenewtoken", (req, res) => {
   try {
     const refreshToken = req.body.token;
-    if (!refreshToken)
+    if (!refreshToken || refreshToken === null)
       return res
         .status(401)
         .json({ Error: "Please provide a valid refresh token" });
@@ -116,9 +116,10 @@ router.post("/generatenewtoken", (req, res) => {
       data = { user: { id: data.user.id } };
       const authToken = generateAuthToken(data);
 
-      res.status(200).json({ authToken });
+      return res.status(200).json({ authToken });
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json({ Error: "Internal Server Error" });
   }
 });
