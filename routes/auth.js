@@ -108,11 +108,11 @@ router.post("/generatenewtoken", (req, res) => {
     const refreshToken = req.body.token;
     if (!refreshToken || refreshToken === null)
       return res
-        .status(401)
+        .status(200)
         .json({ Error: "Please provide a valid refresh token" });
 
     jwt.verify(refreshToken, REFRESH_TOKEN_SECRET, (err, data) => {
-      if (err) return res.status(401).json({ Error: "Please login again" });
+      if (err) return res.status(200).json({ Error: "Please login again" });
       data = { user: { id: data.user.id } };
       const authToken = generateAuthToken(data);
 
