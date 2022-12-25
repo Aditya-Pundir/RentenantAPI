@@ -1,3 +1,4 @@
+require("dotenv").config({ path: "./.env" });
 const express = require("express");
 const connectToMongo = require("./db");
 const bodyParser = require("body-parser");

@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const mongoURI =
-  "mongodb+srv://Aditya_Pundir:coder420@rentmanager.mahme.mongodb.net/TenantManager?retryWrites=true&w=majority";
+const mongoURI = `mongodb+srv://${process.env.DB_CREDS}@rentmanager.mahme.mongodb.net/TenantManager?retryWrites=true&w=majority`;
 
 const connectToMongo = async () => {
   await mongoose
