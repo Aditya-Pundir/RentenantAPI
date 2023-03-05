@@ -66,7 +66,7 @@ router.post("/newrent", fetchUser, async (req, res) => {
       totalReading: Number(req.body.totalReading),
       electricBill: Number(req.body.electricBill),
       paidOn: req.body.paidOn,
-      unitCharge: req.body.unitCharge,
+      unitCharge: Number(req.body.unitCharge),
       amount: Number(req.body.amount),
       amountPaid: Number(req.body.amountPaid),
       pending: Number(req.body.pending),
