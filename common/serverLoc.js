@@ -1,1 +1,1 @@
-module.exports = "http://localhost:5000";
+module.exports = "https://rentenant.cyclic.app/api";
